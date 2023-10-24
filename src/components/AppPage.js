@@ -2,7 +2,7 @@ import React from "react";
 import { useTask } from "../context/AppContext";
 import TaskView from "./TaskView";
 
-function HomePage() {
+function AppPage() {
   const task = useTask();
 
   const [newViewName, setNewViewName] = React.useState("");
@@ -17,8 +17,7 @@ function HomePage() {
   return (
     <div className="h-screen bg-gray-50 flex flex-col px-10 pt-10 gap-16">
       <div className="text-base md:text-2xl lg:text-4xl font-semibold text-slate-600 first-letter:px-2 first-letter:mr-1 first-letter:shadow-md  first-letter:bg-white">
-        <span className="tracking-widest"> Notion:</span> One workspace. Every
-        team.
+        <span className="tracking-widest"> Protasker:</span> Task View
       </div>
       <div className="flex gap-4 flex-nowrap overflow-x-scroll h-full px-5">
         {task.viewItems.map((view) => (
@@ -52,4 +51,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default AppPage;
