@@ -112,6 +112,12 @@ export const AppProvider = ({ children }) => {
     storeCache(newViewItems);
   };
 
+  const deleteView = (viewId) => {
+    const newViewItems = viewItems.filter((view) => view.id !== viewId);
+    setViewItems(newViewItems);
+    storeCache(newViewItems);
+  };
+
   const addView = (name) => {
     const newView = {
       name,
@@ -182,6 +188,7 @@ export const AppProvider = ({ children }) => {
   const value = {
     viewItems,
     addTask,
+    deleteView,
     addView,
     setTaskId,
     taskId,

@@ -28,7 +28,7 @@ function Home() {
       </header>
 
       {/* Introduction Section */}
-      <main className="absolute top-16 container mx-auto px-56 text-center flex flex-col items-center justify-center h-screen">
+      <main className="mt-16 container mx-auto px-56 text-center flex flex-col items-center justify-center h-auto">
         <h2 className="text-3xl font-semibold">
           Your tasks, docs, & projects. Together.
         </h2>
@@ -37,16 +37,20 @@ function Home() {
           efficiently with Protasker.
         </p>
         <Link
-          to="/app"
-          className="bg-black text-white px-6 py-3 rounded-lg mt-6 inline-block hover:bg-gray-900"
+          to="/dash"
+          className="bg-black text-white px-6 py-3 rounded-lg mt-6 hover:bg-gray-900"
         >
           Try Protasker
         </Link>
-        <img src="group.png" alt="Group" className="w-1/3 max-w-[300px] mt-6" />
+        <img
+          src="group.png"
+          alt="Group"
+          className="w-1/3 min-w-[300px] mt-6"
+        />
 
         {/* New Text Below */}
-        <div className="flex w-1/2 items-center py-32">
-          <div className="absolute left-40 w-1/2">
+        <section className="flex flex-col md:flex-row w-full items-center py-32">
+          <div className="w-full md:w-1/2 mr-auto">
             <p className="text-3xl font-semibold">
               The next gen of notes & docs
             </p>
@@ -55,13 +59,25 @@ function Home() {
               Protasker’s flexible building blocks.
             </p>
           </div>
-          <div className="absolute right-40 text-right">
-            <img src="doc.png" alt="doc" className="max-w-[300px]" />
+          <div className="w-full md:w-1/2 text-right">
+            <img src="doc.png" alt="doc" className="min-w-[300px]" />
           </div>
-        </div>
+        </section>
 
-
-        
+        {/* Projects */}
+        <section className="w-full ">
+          <div className="w-full md:w-1/2">
+            <p className="absolute w-full justify-center my-10 text-[40px] font-semibold mx-7">
+              Projects
+            </p>
+            <p className="absolute w-[500px] text-gray-600 right-32 my-32">
+            The "Project" component creates a web dashboard with tabs for managing tasks, notes, and project details. Users can easily switch between tabs, and each tab displays its relevant content (e.g., task list, notes, project details). The design is clean and user-friendly, featuring a title ("Protasker") and a responsive layout.
+            </p>
+          </div>
+          <div className="absolute my-20 w-full md:w-1/2 text-right">
+            <img src="project.png" alt="project" className="w-[400px]" />
+          </div>
+        </section>
       </main>
     </div>
   );

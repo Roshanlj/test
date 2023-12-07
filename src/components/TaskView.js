@@ -7,7 +7,7 @@ function TaskView({ view, viewId }) {
   const [isInputVisible, setIsInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { changeView, setTaskId, addTask } = useTask();
+  const { changeView, setTaskId, addTask, deleteView } = useTask();
 
   // * Adds a new task to the view
   const handleNewTask = () => {
@@ -41,6 +41,10 @@ function TaskView({ view, viewId }) {
     changeView(task, fromViewId, viewId);
   };
 
+  const handleDeleteView = (e) => {
+    deleteView(viewId);
+  };
+
   return (
     <div
       className="flex flex-col items-center gap-4 min-w-[200px]"
@@ -54,6 +58,12 @@ function TaskView({ view, viewId }) {
           </div>
           <div>{view.tasks.length}</div>
         </div>
+        <button
+          onClick={() => handleDeleteView(viewId)}
+          className=" text-[#d84242] cursor-pointer"
+        >
+          -
+        </button>
         <button
           onClick={() => setIsInputVisible(true)}
           className=" text-gray-400 cursor-pointer"

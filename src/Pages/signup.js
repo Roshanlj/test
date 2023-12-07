@@ -8,6 +8,16 @@ function SignUp() {
     password: '',
   });
 
+  const handleGoogleLogin = () => {
+    const auth2 = window.gapi.auth2.getAuthInstance();
+    auth2.signIn().then((googleUser) => {
+      const profile = googleUser.getBasicProfile();
+      const email = profile.getEmail();
+      // Do something with the email, like setting it in the state
+      setFormData({ ...formData, email });
+    });
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -85,6 +95,14 @@ function SignUp() {
             Sign Up
           </button>
         </form>
+        {/* Google Login Button */}
+        <button
+            onClick={handleGoogleLogin}
+            className="my-3 w-full font-semibold py-2 rounded hover:bg-[#c9c9c9] focus:outline-none flex items-center justify-center"
+          >
+            <img src="google.png" alt="Google Logo" className="h-6 w-6 mr-2" />
+            Sign up with Google
+          </button>
       </div>
       </div>
     </div>
